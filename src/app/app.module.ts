@@ -48,6 +48,7 @@ import { EditSellerComponent } from './functions/edit-seller/edit-seller.compone
 import { AddProductComponent } from './functions/add-product/add-product.component';
 import { CartComponent } from './cart/cart.component';
 import { RegistrationComponent } from './registration/registration.component';
+import { SessionStorageService } from "./session-storage.service";
 
 
 
@@ -124,7 +125,7 @@ canActivate: [AuthGuard]
 
     
   ],
-  providers: [AuthService, AuthGuard,PackageService],
+  providers: [AuthService, AuthGuard,PackageService, SessionStorageService],
   bootstrap: [AppComponent],
    exports : [
   ]

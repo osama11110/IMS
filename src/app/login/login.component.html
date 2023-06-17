@@ -9,24 +9,70 @@
                     <!-- <div class="box">  -->
                         <form onsubmit="event.preventDefault()" class="box">
                             <h1>Login</h1>
-                            <p> Please enter your login and password!</p> <input type="text" name="username" [(ngModel)] = "userName"
-                                placeholder="Username"> <input type="password" name="password" placeholder="Password" [(ngModel)]="userPassword"> <a
-                                href="#">Forgot password?</a> <input type="submit" name="" value="Login"
-                                (click)="verifyUser()">
-                            <div class="col-md-12">
-                                <ul class="social-network social-circle">
-                                    <li><a href="https://www.facebook.com/SloshAIsolutions/" class="icoFacebook" title="Facebook"><i
-                                                class="fab fa-facebook-f"></i></a></li>
-                                    <li><a href="https://www.linkedin.com/company/slosh-ai-solutions/" class="icoLinkedin" title="Linkedin"><i class="fab fa-linkedin"></i></a>
-                                    </li>
-                                    <li><a href="https://www.instagram.com/slosh.solutions/?hl=en" class="icoInstagram" title="Instagram"><i
-                                                class="fab fa-instagram"></i></a></li>
-                                </ul>
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example3cg">Email</label>
+                              <input type="text" name="email" id="form3Example3cg" class="form-control form-control-lg" [(ngModel)] = "email" />
                             </div>
+            
+                            <div class="form-outline mb-4">
+                                <label class="form-label" for="form3Example4cg">Password</label>
+                              <input type="password"  name="password" id="form3Example4cg" class="form-control form-control-lg"  [(ngModel)] = "password"/>
+                            </div>
+                            <div class="form-outline mb-4">
+                            <label class="form-label" for="form3Example5cg">Login As</label>
+                            <select class="form-select" name="selectedoption" id="form3Example5cg" aria-label="Default select example"  [(ngModel)]= "selectedOption" >
+                                <option value="1" >Admin</option>
+                                <option value="2">Seller</option>
+                                <option value="3">Customer</option>
+                              </select>
+                            </div>
+                              <br>
+                            <div class="d-flex justify-content-center">
+                              <button type="button"
+                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="verifyUser()">Login</button>
+                            </div>
+            
+                            <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#!"
+                                class="fw-bold text-body"><u><button type="button" class="btn btn-success btn-sm gradient-custom-4 text-body " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Register
+              </button></u></a></p>
                         </form>
                     <!-- </div> -->
                 </div>
             </div>
          </div>
     <!-- </div>  -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <app-registration></app-registration>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
 </body>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <app-registration></app-registration>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
