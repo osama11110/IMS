@@ -1,0 +1,54 @@
+
+<div class="row">
+    <div class="col-md-12">
+      <div class="card card-plain">
+        <div class="card-header">
+          <h4 class="card-title"> Patient List</h4>
+          <p class="card-category"> List of all the Patients</p>
+        </div>
+        <br>
+        <div class="spinner-border text-primary" role="status" *ngIf= "tableUploading">
+          <span class="visually-hidden"></span>
+        </div>
+        <div class="card-body">
+          <div class="table-responsive">
+            <table class="table">
+              <thead class=" text-primary">
+                <th>
+                  Product Id
+                </th>
+                <th>
+                  Product Name
+                </th>
+                <th>
+                  Product Price
+                </th>
+                <th >
+                  Product Color
+                </th>
+              </thead>
+              <tbody *ngFor="let item of items">
+                <tr > 
+                  <td>
+                    {{item.productid}}
+                  </td>
+                  <td>
+                    {{item.productname}}
+                  </td>
+                  <td>
+                    {{item.productprice}}
+                  </td>
+                  <td >
+                    {{item.productcolor}} 
+                  </td>
+                </tr>
+              </tbody>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  
+  

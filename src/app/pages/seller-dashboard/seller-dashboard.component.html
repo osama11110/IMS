@@ -1,0 +1,160 @@
+<h1 class="display-4">Welcome</h1>
+<div class="row">
+<div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <button class="btn btn-info" (click)="triggerModal(modallData)">Edit Seller</button>
+
+<ng-template #modallData let-modal >
+
+  
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title"  style="z-index: 1400;">Seller Information</h4>
+    <button type="button"  class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onSellerSubmit(f); modal.close('Save click')"  novalidate >
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" class="form-control" placeholder=""  name="sellername" ngModel>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Email</label>
+              <input type="text" class="form-control" placeholder="" name="selleremail" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>City</label>
+              <input type="text" class="form-control" placeholder=""  name="sellercity" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Address</label>
+              <input type="text" class="form-control" placeholder=""  name="selleraddress" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Phone No.</label>
+              <input type="text" class="form-control" placeholder=""  name="sellerphone" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>password</label>
+              <input type="text" class="form-control" placeholder=""  name="sellerpassword" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round"  [disabled]= "fileUploading">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+\</ng-template>
+
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div class="col-lg-3 col-md-6 col-sm-6">
+    <div class="card card-stats">
+      <div class="card-body ">
+        <button class="btn btn-info" (click)="triggerModal(modalData)">Add Product</button>
+
+<ng-template #modalData let-modal >
+
+  
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-product-title"  style="z-index: 1400;">Product Information</h4>
+    <button type="button"  class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="card-body">
+      <form #f="ngForm" (ngSubmit)="onProductSubmit(f); modal.close('Save click')"  novalidate >
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Product Name</label>
+              <input type="text" class="form-control" placeholder=""  name="productname" ngModel>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Product Price</label>
+              <input type="text" class="form-control" placeholder="" name="productprice" ngModel>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12 px-1">
+            <div class="form-group">
+              <label>Product Color</label>
+              <input type="text" class="form-control" placeholder=""  name="productcolor" ngModel>
+            </div>
+          </div>
+        </div>
+        
+        <div class="row">
+          <div class="update ml-auto mr-auto">
+            <button type="submit" class="btn btn-primary btn-round"  [disabled]= "fileUploading">Submit</button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Close</button>
+  </div>
+\</ng-template>
+
+      </div>
+      <div class="card-footer ">
+        <hr>
+        <div class="stats">
+         
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>

@@ -1,0 +1,22 @@
+<body>
+    <div class="container">
+      <div class="row mb-4">
+        <div class="col-md-12">
+          <br>
+          <h2 class="heading-section">Products</h2>
+        </div>
+      </div>
+    <div class="row">
+      <div class="col-md-3 mb-3" *ngFor="let a of items">
+      <div class="card border-secondary mb-3" style="max-width: 20rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{a.packageName}}</h5>
+          <p class="card-text">{{a.packageDesc}}</p>
+          <a class="btn btn-primary"  (click)="add(a)">Add to Cart</a>
+        </div>
+        </div>
+      </div>
+    
+    </div>
+    </div>
+    </body>
