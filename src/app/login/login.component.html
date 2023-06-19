@@ -10,16 +10,16 @@
                         <form onsubmit="event.preventDefault()" class="box">
                             <h1>Login</h1>
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example3cg">Email</label>
+                                <label class="form-label" for="form3Example3cg" style="color: azure;">Email</label>
                               <input type="text" name="email" id="form3Example3cg" class="form-control form-control-lg" [(ngModel)] = "email" />
                             </div>
             
                             <div class="form-outline mb-4">
-                                <label class="form-label" for="form3Example4cg">Password</label>
+                                <label class="form-label" for="form3Example4cg" style="color: azure;">Password</label>
                               <input type="password"  name="password" id="form3Example4cg" class="form-control form-control-lg"  [(ngModel)] = "password"/>
                             </div>
                             <div class="form-outline mb-4">
-                            <label class="form-label" for="form3Example5cg">Login As</label>
+                            <label class="form-label" for="form3Example5cg" style="color: azure;">Login As</label>
                             <select class="form-select" name="selectedoption" id="form3Example5cg" aria-label="Default select example"  [(ngModel)]= "selectedOption" >
                                 <option value="1" >Admin</option>
                                 <option value="2">Seller</option>
@@ -29,11 +29,11 @@
                               <br>
                             <div class="d-flex justify-content-center">
                               <button type="button"
-                                class="btn btn-success btn-block btn-lg gradient-custom-4 text-body" (click)="verifyUser()">Login</button>
+                                class="btn btn-info btn-block btn-lg gradient-custom-4 text-body" (click)="verifyUser()">Login</button>
                             </div>
             
-                            <p class="text-center text-muted mt-5 mb-0">Don't have an account? <a href="#!"
-                                class="fw-bold text-body"><u><button type="button" class="btn btn-success btn-sm gradient-custom-4 text-body " data-bs-toggle="modal" data-bs-target="#exampleModal">
+                            <p class="text-center text-muted mt-5 mb-0" style="color: beige;">Don't have an account? <a 
+                                class="fw-bold text-body"><u><button type="button" class="btn btn-info btn-sm gradient-custom-4 text-body " data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Register
               </button></u></a></p>
                         </form>
@@ -42,22 +42,7 @@
             </div>
          </div>
     <!-- </div>  -->
-    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <app-registration></app-registration>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            </div>
-          </div>
-        </div>
-      </div>
+   
 </body>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

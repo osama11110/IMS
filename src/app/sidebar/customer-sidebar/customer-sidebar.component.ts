@@ -8,8 +8,10 @@ export interface RouteInfo {
 }
 
 export const ROUTES: RouteInfo[] = [
-  { path: '/customer-layout/customer-dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
-  { path: '/adminlayout/table',         title: 'Patient List',        icon:'nc-tile-56',    class: '' },
+  { path: '/customerlayout/customer-dashboard',     title: 'Dashboard',         icon:'nc-bank',       class: '' },
+  { path: '/customerlayout/products',         title: 'Products',        icon:'nc-tile-56',    class: '' },
+  { path: '/customerlayout/invoice-table',         title: 'Invoice Table',        icon:'nc-tile-56',    class: '' },
+
 ];
 
 

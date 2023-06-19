@@ -10,8 +10,9 @@
       <div class="col-md-3 mb-3" *ngFor="let a of items">
       <div class="card border-secondary mb-3" style="max-width: 20rem;">
         <div class="card-body">
-          <h5 class="card-title">{{a.packageName}}</h5>
-          <p class="card-text">{{a.packageDesc}}</p>
+          <h1 class="card-title">{{a.PRODUCT_NAME}}</h1>
+          <p class="card-text">COLOR: {{a.PRODUCT_COLOR}}</p>
+          <p class="card-text">PRICE: {{a.PRODUCT_PRICE}}</p>
           <a class="btn btn-primary"  (click)="add(a)">Add to Cart</a>
         </div>
         </div>

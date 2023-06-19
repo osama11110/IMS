@@ -2,7 +2,8 @@ import { Component, OnInit, Renderer2, ViewChild, ElementRef } from '@angular/co
 import { ROUTES } from '../../sidebar/sidebar.component';
 import { Router } from '@angular/router';
 import { Location} from '@angular/common';
-
+import { SessionStorageService } from 'src/app/session-storage.service';
+import { PackageService } from 'src/package.service';
 @Component({
     moduleId: module.id,
     selector: 'navbar-cmp',
@@ -15,11 +16,12 @@ export class NavbarComponent implements OnInit{
     private nativeElement: Node;
     private toggleButton;
     private sidebarVisible: boolean;
-
+    items = this.cartService.getcartItems();
     public isCollapsed = true;
     @ViewChild("navbar-cmp", {static: false}) button;
 
-    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router) {
+
+    constructor(location:Location, private renderer : Renderer2, private element : ElementRef, private router: Router, private sessionstorage : SessionStorageService, private cartService: PackageService) {
         this.location = location;
         this.nativeElement = element.nativeElement;
         this.sidebarVisible = false;
@@ -77,6 +79,7 @@ export class NavbarComponent implements OnInit{
           this.toggleButton.classList.remove('toggled');
           this.sidebarVisible = false;
           html.classList.remove('nav-open');
+
       };
       collapse(){
         this.isCollapsed = !this.isCollapsed;
@@ -91,5 +94,19 @@ export class NavbarComponent implements OnInit{
         }
 
       }
+      clearout()
+      {
+        this.sessionstorage.clearAll
+      }
+      emptyCart(){
+        this.cartService.clearCart();
+        let currentUrl = this.router.url;
+            this.router.navigateByUrl('/', {skipLocationChange: true}).then(() => {
+                this.router.navigate([currentUrl]);
+            });
+      
+        }
+
+
 
 }

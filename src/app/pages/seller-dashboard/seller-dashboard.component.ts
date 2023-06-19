@@ -4,6 +4,7 @@ import { PackageService } from 'src/package.service';
 import { NgForm } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import swal from 'sweetalert2';
+import { SessionStorageService } from 'src/app/session-storage.service';
 declare var $: any;
 @Component({
   selector: 'app-seller-dashboard',
@@ -28,12 +29,20 @@ export class SellerDashboardComponent implements OnInit {
   // myForm = new FormGroup({
 
   // });
-
+  sellername: string = '';
+  selleremail: string = '';
+  sellercity: string = '';
+  selleraddress: string = '';
+  sellerphone: string = '';
+  sellerpassword: string = '';
+  productname: string = '';
+  productprice: string = '';
+  productcolor: string = '';
 
 
   
   
-  constructor(private modalService: NgbModal, private packageService: PackageService, private http:HttpClient) {}
+  constructor(private modalService: NgbModal, private packageService: PackageService, private http:HttpClient, private sessionstorage: SessionStorageService) {}
 
   ngOnInit(){
    
@@ -58,10 +67,11 @@ export class SellerDashboardComponent implements OnInit {
     }
   }
 
-  onSellerSubmit(f: NgForm) {
+  onSellerSubmit() {
     // console.log(f.value);  // { first: '', last: '' }
-    this.packageService.addToTask(f.value);
-    this.http.post('http://3.13.172.54:3000/api/postpatientdata', f.value ).subscribe(res=> {
+    const  sellerid = this.sessionstorage.getValue('sellerId')
+    console.log(this.selleraddress)
+     this.http.put('http://localhost:3000/update-seller', {sellerid : sellerid, sellername : this.sellername, selleremail : this.selleremail, sellercity : this.sellercity, selleraddress : this.selleraddress, sellerphone : this.sellerphone, customerpassword : this.sellerpassword} ).subscribe(res=> {
       console.log(res);
       if(res)
       {
@@ -72,10 +82,10 @@ export class SellerDashboardComponent implements OnInit {
   }
   });
   }
-  onProductSubmit(f: NgForm) {
-    console.log(f.value);  // { first: '', last: '' }
-    this.packageService.addToTask(f.value);
-    this.http.post('http://localhost:3000/add-product', f.value ).subscribe(res=> {
+  onProductSubmit() {
+    // console.log(f.value);  // { first: '', last: '' }
+    const  sellerId = this.sessionstorage.getValue('sellerId')
+    this.http.post('http://localhost:3000/add-product',{productname: this.productname, productprice: this.productprice, productcolor : this.productcolor ,sellerid: sellerId } ).subscribe(res=> {
       console.log(res);
       if(res)
       {

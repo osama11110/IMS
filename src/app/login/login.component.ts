@@ -61,10 +61,6 @@ export class LoginComponent implements OnInit {
   verifyUser()
   {
 
-
-      console.log(this.selectedOption);
-    
-      console.log(this.selectedOption);
       if (this.selectedOption === '3') {
      // Send login request to the Node.js API
      this.http.post('http://localhost:3000/auth-customer', { customeremail: this.email, customerpassword: this.password })
@@ -92,7 +88,7 @@ export class LoginComponent implements OnInit {
 } 
 if (this.selectedOption === '2') {
   // Send login request to the Node.js API
-  this.http.post('http://localhost:3000/search-seller', { selleremail: this.email, sellerpassword: this.password })
+  this.http.post('http://localhost:3000/auth-seller', { selleremail: this.email, sellerpassword: this.password })
   .subscribe(response => {
     let value = response[0].SELLER_ID;
     // Handle the API response, such as storing the JWT token and redirecting the user
@@ -101,7 +97,7 @@ if (this.selectedOption === '2') {
 
   
  if(response) {
-   value = this.sessionstorage.getValue('sellerid')
+   value = this.sessionstorage.getValue('sellerId')
    console.log(value)
    this.authService.setLogin(true);
  
@@ -116,6 +112,21 @@ if (this.selectedOption === '2') {
    this.authService.setLogin(false);
  }
 });
+} 
+if (this.selectedOption === '1') {
+  if(this.email === 'admin@gmail.com' && this.password === 'admin') {
+        this.authService.setLogin(true);
+      
+        this.router.navigateByUrl('/adminlayout/dashboard');
+      
+  }
+  else {
+   swal.fire({title: 'Error!',
+   text: 'Invalid email or Password',
+   icon: 'error',
+   confirmButtonText: 'ok'});
+   this.authService.setLogin(false);
+ }
 } 
   }
 

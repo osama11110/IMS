@@ -49,6 +49,8 @@ import { AddProductComponent } from './functions/add-product/add-product.compone
 import { CartComponent } from './cart/cart.component';
 import { RegistrationComponent } from './registration/registration.component';
 import { SessionStorageService } from "./session-storage.service";
+import { ReportOneComponent } from './pages/report-one/report-one.component';
+import { ReportTwoComponent } from './pages/report-two/report-two.component';
 
 
 
@@ -98,6 +100,8 @@ canActivate: [AuthGuard]
     AddProductComponent,
     CartComponent,
     RegistrationComponent,
+    ReportOneComponent,
+    ReportTwoComponent,
    
    
     

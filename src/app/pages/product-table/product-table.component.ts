@@ -1,10 +1,6 @@
-import { Component, OnInit,ViewChild, AfterViewInit } from '@angular/core';
-import { UserProfile } from 'src/app/models/user-profile.model';
-import { ModalDismissReasons, NgbModal } from '@ng-bootstrap/ng-bootstrap';
-import { PackageService } from 'src/package.service';
+import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
-import { Router } from "@angular/router";
-
+import { SessionStorageService } from 'src/app/session-storage.service';
 
 
 declare interface TableData {
@@ -27,8 +23,7 @@ export class ProductTableComponent implements OnInit {
 
 
 
-  constructor(private http:HttpClient,
-      private packageService: PackageService,private modalService: NgbModal, private router : Router )
+  constructor(private http : HttpClient, private sessionstorage : SessionStorageService  )
      {
       }
   
@@ -44,7 +39,10 @@ export class ProductTableComponent implements OnInit {
 
     getItemData()
     {
-      this.http.get('http://localgost:3000/api/getpatientdata').subscribe(res=>{      
+      const sellerId = this.sessionstorage.getValue('sellerId');
+      this.http.get('http://localhost:3000/list-product' , {params:{
+        searchId: sellerId
+      }}).subscribe(res=>{      
          if(res)
          {
           this.tableUploading = false;
@@ -53,28 +51,5 @@ export class ProductTableComponent implements OnInit {
       
       })
     }
-    triggerModal(content) {
-      this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
-        this.closeModal = `Closed with: ${res}`;
-      }, (res) => {
-        this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
-      });
-    }
     
-    private getDismissReason(reason: any): string {
-      if (reason == ModalDismissReasons.ESC) {
-        return 'by pressing ESC';
-      } else if (reason == ModalDismissReasons.BACKDROP_CLICK) {
-        return 'by clicking on a backdrop';
-      } else {
-        return  `with: ${reason}`;
-      }
-    }
-
-    // gotoDynamic(item)
-    // {
-    //   this.router.navigateByUrl("/viewer", {state: {item}})
-    // }
-    
-
 }

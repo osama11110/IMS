@@ -16,12 +16,12 @@
   </div>
   <div class="modal-body">
     <div class="card-body">
-      <form #f="ngForm" (ngSubmit)="onSubmit(f); modal.close('Save click')"  novalidate >
+      <form #f="ngForm" onsubmit="event.preventDefault()"  novalidate >
         <div class="row">
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>Full Name</label>
-              <input type="text" class="form-control" placeholder=""  name="customername" ngModel>
+              <input type="text" class="form-control" placeholder=""  name="customername" [(ngModel)] = "customername">
             </div>
           </div>
         </div>
@@ -30,7 +30,7 @@
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>Email</label>
-              <input type="text" class="form-control" placeholder="" name="customeremail" ngModel>
+              <input type="text" class="form-control" placeholder="" name="customeremail" [(ngModel)] = "customeremail">
             </div>
           </div>
         </div>
@@ -38,7 +38,7 @@
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>City</label>
-              <input type="text" class="form-control" placeholder=""  name="customercity" ngModel>
+              <input type="text" class="form-control" placeholder=""  name="customercity" [(ngModel)] = "customercity">
             </div>
           </div>
         </div>
@@ -46,7 +46,7 @@
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>Address</label>
-              <input type="text" class="form-control" placeholder=""  name="customeraddress" ngModel>
+              <input type="text" class="form-control" placeholder=""  name="customeraddress" [(ngModel)] = "customeraddress">
             </div>
           </div>
         </div>
@@ -54,7 +54,7 @@
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>Phone No.</label>
-              <input type="text" class="form-control" placeholder=""  name="customerphone" ngModel>
+              <input type="text" class="form-control" placeholder=""  name="customerphone" [(ngModel)] = "customerphone">
             </div>
           </div>
         </div>
@@ -62,13 +62,13 @@
           <div class="col-md-12 px-1">
             <div class="form-group">
               <label>password</label>
-              <input type="text" class="form-control" placeholder=""  name="customerpassword" ngModel>
+              <input type="text" class="form-control" placeholder=""  name="customerpassword" [(ngModel)] = "customerpassword">
             </div>
           </div>
         </div>
         <div class="row">
           <div class="update ml-auto mr-auto">
-            <button type="submit" class="btn btn-primary btn-round"  [disabled]= "fileUploading">Submit</button>
+            <button type="submit" class="btn btn-primary btn-round" (click)="onCustomerSubmit()" >Submit</button>
           </div>
         </div>
       </form>
